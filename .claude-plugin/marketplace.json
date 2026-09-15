@@ -7,7 +7,7 @@
   },
   "plugins": [
     {
-      "name": "openscad-bambu-3mf",
+      "name": "3d-print-openscad-3mf",
       "source": "./",
       "description": "OpenSCAD parts, mesh measurement, mechanism checks and Bambu 3MF packaging, with a BRIO/IKEA wooden-train domain.",
       "autoUpdate": true

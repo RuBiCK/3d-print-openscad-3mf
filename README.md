@@ -1,4 +1,4 @@
-# openscad-bambu-3mf
+# 3D print: OpenSCAD to 3MF (`3d-print-openscad-3mf`)
 
 A [Claude Code](https://code.claude.com) skill for designing 3D-printable
 parts: model in OpenSCAD, reverse-engineer exact dimensions from an existing
@@ -35,32 +35,32 @@ Pick one. All three give you the same files; they differ in how you update.
 Inside Claude Code:
 
 ```
-/plugin marketplace add RuBiCK/openscad-bambu-3mf
-/plugin install openscad-bambu-3mf@rubick
+/plugin marketplace add RuBiCK/3d-print-openscad-3mf
+/plugin install 3d-print-openscad-3mf@rubick
 ```
 
-Update with `/plugin update openscad-bambu-3mf@rubick` (or `claude plugin update
-openscad-bambu-3mf@rubick` from a shell). The marketplace entry also declares
+Update with `/plugin update 3d-print-openscad-3mf@rubick` (or `claude plugin update
+3d-print-openscad-3mf@rubick` from a shell). The marketplace entry also declares
 `autoUpdate: true` for Claude Code versions that honour it; 2.1.x reports the
 field as ignored, so do not count on it yet.
-The skill is then available as `/openscad-bambu-3mf` and Claude also picks it
+The skill is then available as `/3d-print-openscad-3mf` and Claude also picks it
 up on its own when a task is about printable parts or 3MF files.
 
 ### 2. As a personal skill via git (recommended if you want to edit it)
 
 ```sh
-git clone https://github.com/RuBiCK/openscad-bambu-3mf ~/.claude/skills/openscad-bambu-3mf
+git clone https://github.com/RuBiCK/3d-print-openscad-3mf ~/.claude/skills/3d-print-openscad-3mf
 ```
 
 It loads in every project on your machine. Because the folder carries a
 `.claude-plugin/plugin.json`, Claude Code treats it as a skills-directory
-plugin (`openscad-bambu-3mf@skills-dir`): no install step, and edits to
+plugin (`3d-print-openscad-3mf@skills-dir`): no install step, and edits to
 `SKILL.md` take effect immediately. Update with `git pull` in that folder.
 
 ### 3. Inside a project, for a whole team
 
 ```sh
-git submodule add https://github.com/RuBiCK/openscad-bambu-3mf .claude/skills/openscad-bambu-3mf
+git submodule add https://github.com/RuBiCK/3d-print-openscad-3mf .claude/skills/3d-print-openscad-3mf
 ```
 
 Everyone who clones the project gets it; update with
@@ -78,7 +78,7 @@ rules are in `REFERENCE.md`; the wooden-train specifics in
 The scripts also work on their own:
 
 ```sh
-S=~/.claude/skills/openscad-bambu-3mf/scripts
+S=~/.claude/skills/3d-print-openscad-3mf/scripts
 python3 $S/measure.py scan box.3mf --at -7 --along x
 python3 $S/sweep.py chk.scad --parts housing lever wheel --var angle 0 360 --step 10
 python3 $S/make3mf.py -o set.3mf --donor my-exported-project.3mf --cover render.png \

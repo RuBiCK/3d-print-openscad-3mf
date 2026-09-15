@@ -1,5 +1,5 @@
 ---
-name: openscad-bambu-3mf
+name: 3d-print-openscad-3mf
 description: Design 3D-printable parts in OpenSCAD and package them into Bambu Studio project .3mf files, including reverse-engineering exact dimensions from an existing 3MF or STL so a new part mates with it, and verifying mechanisms (interference over a cycle, assembly path, screw engagement) before printing. Use when modelling a printable part, measuring an existing mesh to make something fit it, designing a replacement or adapter for an existing object, reviewing a moving assembly for a child's toy, or building and validating .3mf files for Bambu Studio or MakerWorld.
 ---
 
