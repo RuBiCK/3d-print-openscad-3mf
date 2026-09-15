@@ -1,0 +1,10 @@
+{
+  "name": "openscad-bambu-3mf",
+  "displayName": "OpenSCAD to Bambu 3MF",
+  "description": "Design printable parts in OpenSCAD, reverse-engineer dimensions from existing meshes, verify mechanisms (interference sweep, assembly path, screws), and package multi-plate Bambu Studio .3mf projects. Includes a wooden-train (BRIO/IKEA) domain and SCAD library.",
+  "author": { "name": "RuBiCK", "url": "https://github.com/RuBiCK" },
+  "homepage": "https://github.com/RuBiCK/openscad-bambu-3mf",
+  "repository": "https://github.com/RuBiCK/openscad-bambu-3mf",
+  "license": "MIT",
+  "keywords": ["openscad", "3d-printing", "bambu", "3mf", "makerworld", "brio", "wooden-train", "mechanism"]
+}

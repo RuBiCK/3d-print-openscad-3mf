@@ -1,0 +1,16 @@
+{
+  "name": "rubick",
+  "description": "3D-printing skills by RuBiCK: OpenSCAD parts, mesh measurement, mechanism checks, Bambu 3MF packaging.",
+  "owner": {
+    "name": "RuBiCK",
+    "url": "https://github.com/RuBiCK"
+  },
+  "plugins": [
+    {
+      "name": "openscad-bambu-3mf",
+      "source": "./",
+      "description": "OpenSCAD parts, mesh measurement, mechanism checks and Bambu 3MF packaging, with a BRIO/IKEA wooden-train domain.",
+      "autoUpdate": true
+    }
+  ]
+}
