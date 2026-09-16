@@ -7,17 +7,20 @@ package everything into a Bambu Studio project `.3mf` with named plates.
 
 It comes in two layers:
 
-- **General** (`SKILL.md`, `REFERENCE.md`): measuring meshes, printability,
+- **General** (`SKILL.md`, `REFERENCE.md`, `BOSL2.md`): measuring meshes, printability,
   the 3MF anatomy, and a checklist for anything with moving parts: sweeping
   every pair of parts through the cycle for collisions, computing real travel
   extremes, checking that every part can reach its seat, screw engagement,
-  what breaks first under abuse, pinch points.
+  what breaks first under abuse, pinch points. `BOSL2.md` covers installing
+  the [BOSL2](https://github.com/BelfrySCAD/BOSL2) library and the idioms
+  the skill uses from it (anchors, attachments, screw holes, threads, gears).
 - **Domains** (`domains/`, `lib/`): what a specific object system imposes on
   top, with measured numbers and a SCAD library to `use <>`. Currently:
   wooden train track (BRIO / IKEA LILLABO / Hape), from connector profiles to
   how tall a bridge must be for a train to pass under.
 
-Scripts (`scripts/`, Python 3 + numpy, OpenSCAD on `PATH`):
+Scripts (`scripts/`, Python 3 + numpy, OpenSCAD on `PATH`; models that use
+BOSL2 need it in the OpenSCAD user library folder, see `BOSL2.md`):
 
 | Script | What it does |
 | --- | --- |

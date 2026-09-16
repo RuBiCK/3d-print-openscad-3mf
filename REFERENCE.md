@@ -94,6 +94,12 @@ original and on your STL over the same range and compare. Anything worse than
       translate([0,0,H+BLEND-0.1]) cylinder(h=0.1, d=D_SHOULDER);
   }
   ```
+- **Rounding, chamfers, holes for named screws, threads, gears.** Use
+  [BOSL2](BOSL2.md) rather than `hull()`/`minkowski()` constructions:
+  `cuboid(size, rounding=, edges="Z", anchor=BOTTOM)`,
+  `attach(TOP) screw_hole("M3,10", head="socket", anchor=TOP)` inside a
+  `diff()`. The `hexR` helper and the cone-capped blind hole above stay useful
+  where the profile was measured off a mesh and must be reproduced exactly.
 - **Lead-in chamfers.** A 0.2–0.5 mm 45 degree chamfer on every mating edge
   costs nothing and makes assembly forgiving. On the first layer it also
   compensates for elephant foot.
@@ -311,7 +317,9 @@ redistributing derivatives. Say so rather than assuming.
 | Part floats above or sinks into the plate | the build item's z translation is not `-min_z` |
 | Mating feature 15 % too wide | across-flats read from vertex radii instead of edge distance |
 | Male feature will not enter | the recess has an inward lead-in taper at the mouth |
-| `Genus` is not what the holes account for | coincident faces or a self-intersection in the union |
+| `Genus` is not what the holes account for | coincident faces or a self-intersection in the union; or several disconnected parts in one export (genus is not additive) |
+| A BOSL2 cut shows in the preview but the STL has a sealed cavity | `attach(..., inside=true)` without `shiftout=0.01`: the cutter's face is coincident with the parent's face |
+| No `Status:`/`Genus:` lines at all after an export | a single polyhedron with no boolean (`PolySet`); normal for a lone BOSL2 shape |
 | A collision "went away" after an edit that could not have fixed it | stale STL: OpenSCAD wrote nothing because the result was empty |
 | Render is all background | camera inside the part or pointing past it; move it, do not conclude the part is empty |
 | Cap or collar will not go on after printing | a bigger diameter upstream on the shaft; see Assembly path |

@@ -43,6 +43,10 @@ python3 $S/check3mf.py set.3mf
 2. **Model parametrically**, with the fit dimensions as named parameters at the
    top of the file so a bad fit is a one-line change and a reprint. Variants
    (`punta = "macho" | "inglete"`) as a selector, never as duplicate files.
+   Rounded edges, screw holes, threads, gears, hinges and features placed on
+   the faces of a body come from [BOSL2](BOSL2.md) (`include <BOSL2/std.scad>`),
+   which the user library folder must contain; the install and the verified
+   idioms are in that file, including the `shiftout=0.01` every inside cut needs.
 3. **Model in print orientation**, Z up, the part sitting on z=0, so the STL
    drops straight onto the plate. A part that is easier to write in its
    assembly pose gets an `_asm()` module plus a wrapper that reorients it.
@@ -91,6 +95,9 @@ python3 $S/check3mf.py set.3mf
 
 ## Two layers: general rules and domain notes
 
+- **[BOSL2.md](BOSL2.md)**: installing the BOSL2 library into OpenSCAD and the
+  idioms this skill relies on (anchors, `attach()` + `diff()`, `screw_hole()`,
+  threads, gears, rounding), each verified with a Manifold export.
 - **[REFERENCE.md](REFERENCE.md)** applies to *any* printable object:
   measurement recipes, printability, the 3MF anatomy (including several named
   plates), the mechanism and assembly checklist (sweeping moving parts for
@@ -114,4 +121,5 @@ what clearances the system needs, what worked.
 Scripts in `scripts/`: `meshtools.py` (importable helpers), `measure.py`,
 `sweep.py` + `sweep_template.scad`, `make3mf.py`, `check3mf.py`. They need
 only numpy, plus `openscad` on PATH for modelling and `sips` (macOS) for
-thumbnails.
+thumbnails. Models that use BOSL2 also need it cloned into the OpenSCAD user
+library folder (see [BOSL2.md](BOSL2.md#install)).
