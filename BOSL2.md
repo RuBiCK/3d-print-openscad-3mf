@@ -31,6 +31,21 @@ commit is the version. There is no OpenSCAD package for it, and no Homebrew
 formula: the clone *is* the install. It needs OpenSCAD 2021.01 or newer; the
 2025+ nightlies with `--backend=Manifold` are what this skill assumes.
 
+If the machine has no recent OpenSCAD (Ubuntu 24.04's apt package is 2021.01,
+without Manifold), the nightly AppImage works headless once extracted, no
+FUSE or X server needed; PNG renders go through EGL offscreen:
+
+```sh
+sudo apt-get install -y python3-numpy libgl1 libegl1 libglu1-mesa libharfbuzz0b libfontconfig1 \
+     libxkbcommon0 libxcb-cursor0 libdbus-1-3 libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 \
+     libxcb-keysyms1 libxcb-render-util0 libxcb-shape0 libxcb-xinerama0 libxcb-xkb1
+V=$(curl -s https://files.openscad.org/snapshots/ | grep -o 'OpenSCAD-[0-9.]*-x86_64\.AppImage' | sort -u | tail -1)
+sudo mkdir -p /opt/openscad && cd /opt/openscad && sudo curl -sSLo OpenSCAD.AppImage "https://files.openscad.org/snapshots/$V"
+sudo chmod +x OpenSCAD.AppImage && sudo ./OpenSCAD.AppImage --appimage-extract >/dev/null
+sudo ln -sf /opt/openscad/squashfs-root/AppRun /usr/local/bin/openscad
+openscad --version
+```
+
 Check it works before modelling anything:
 
 ```sh
